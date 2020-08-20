@@ -85121,6 +85121,10 @@ function () {
     };
   }
 
+  User.prototype.markerContent = function () {
+    return "User name: " + this.name;
+  };
+
   return User;
 }();
 
@@ -85153,6 +85157,10 @@ function () {
     };
   }
 
+  Company.prototype.markerContent = function () {
+    return "<div><h1>Company " + this.companyName + "</h1> </div>\n   <div> <h3>" + this.catchPhrase + "</h3></div>    \n    ";
+  };
+
   return Company;
 }();
 
@@ -85179,12 +85187,20 @@ function () {
   }
 
   CustomMap.prototype.addMarker = function (mappable) {
-    new google.maps.Marker({
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    });
+    marker.addListener("click", function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: mappable.markerContent()
+      });
+      infoWindow.open(_this.googleMap, marker);
     });
   };
 

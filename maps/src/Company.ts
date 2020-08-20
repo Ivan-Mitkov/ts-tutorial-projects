@@ -16,4 +16,9 @@ export class Company {
     lat: number;
     lng: number;
   };
+  markerContent(): string {
+    return `<div><h1>Company ${this.companyName}</h1> </div>
+   <div> <h3>${this.catchPhrase}</h3></div>    
+    `;
+  }
 }
