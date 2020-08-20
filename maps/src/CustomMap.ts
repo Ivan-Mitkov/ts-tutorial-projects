@@ -1,6 +1,6 @@
 // import { User } from "./User";
 // import { Company } from "./Company";
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;

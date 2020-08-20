@@ -85108,7 +85108,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var faker_1 = __importDefault(require("faker")); //for better error hints implements
+
 
 var User =
 /** @class */
@@ -85143,7 +85144,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Company = void 0;
 
-var faker_1 = __importDefault(require("faker"));
+var faker_1 = __importDefault(require("faker")); //for better error hints implements
+
 
 var Company =
 /** @class */

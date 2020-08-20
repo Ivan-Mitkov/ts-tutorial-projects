@@ -1,6 +1,8 @@
 import faker from "faker";
+import { Mappable } from "./CustomMap";
 
-export class Company {
+//for better error hints implements
+export class Company implements Mappable {
   constructor() {
     this.companyName = faker.company.companyName();
     this.catchPhrase = faker.company.catchPhrase();
