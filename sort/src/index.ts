@@ -1,16 +1,19 @@
-import { Sorter } from "./Sorter";
 import { NumbersCollection } from "./NumbersCollection";
 import { CharactersCollection } from "./CharactersCollection";
 import { LinkedList } from "./LinkedList";
 
 const arrNumbers = new NumbersCollection([10, 3, -5, 0, 11]);
-const sorter = new Sorter(arrNumbers);
-sorter.sort();
+arrNumbers.sort();
 console.log(arrNumbers.data);
+// const sorter = new Sorter(arrNumbers);
+// sorter.sort();
+// console.log(arrNumbers.data);
 
 const str = new CharactersCollection("aaaaXAxx");
-const stringSorter = new Sorter(str);
-stringSorter.sort();
+str.sort();
+
+// const stringSorter = new Sorter(str);
+// stringSorter.sort();
 console.log(str.data);
 
 const linkedList = new LinkedList();
@@ -19,15 +22,11 @@ linkedList.add(-100);
 linkedList.add(42);
 linkedList.add(1290);
 linkedList.add(-342);
-// linkedList.print()
-const linkListSorter=new Sorter(linkedList);
-linkListSorter.sort()
-linkedList.print()
-
-
-
-
-
+// // linkedList.print()
+// const linkListSorter=new Sorter(linkedList);
+// linkListSorter.sort()
+linkedList.sort();
+linkedList.print();
 
 // class Sorter {
 //   collection: number[] | string;

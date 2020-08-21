@@ -1,5 +1,8 @@
-export class CharactersCollection {
-  constructor(public data: string) {}
+import {Sorter} from './Sorter'
+export class CharactersCollection extends Sorter {
+  constructor(public data: string) {
+    super()
+  }
   swap(leftIndex: number, rightIndex: number): void {
     const stringArray = this.data.split("");
     const rightTemp = this.data[rightIndex];
