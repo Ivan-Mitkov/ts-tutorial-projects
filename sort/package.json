@@ -1,24 +1,17 @@
 {
-  "name": "ts projects",
+  "name": "sort",
   "version": "1.0.0",
-  "description": "",
+  "description": "create tsconfig.json \"tsc --init\"",
   "main": "index.js",
   "scripts": {
     "start:build": "tsc -w",
     "start:run": "nodemon build/index.js",
     "start": "concurrently npm:start:*"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/faker": "^4.1.12",
-    "typescript": "^3.9.7"
-  },
   "dependencies": {
-    "@types/googlemaps": "^3.39.13",
     "concurrently": "^5.3.0",
-    "faker": "^4.1.0",
     "nodemon": "^2.0.4"
   }
 }
