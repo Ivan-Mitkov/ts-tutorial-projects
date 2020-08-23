@@ -1,14 +1,16 @@
 import fs from "fs";
 
-export class CsvFileReader {
+export abstract class CsvFileReader<T> {
   constructor(public fileName: string) {}
 
-  data: string[][] = [];
+  abstract convertRow(row: string[]): T;
+  data: T[] = [];
 
   read(): void {
     this.data = fs
       .readFileSync(this.fileName, { encoding: "utf-8" })
       .split("\n")
-      .map((x): string[] => x.split(","));
+      .map((x): string[] => x.split(","))
+      .map(this.convertRow);
   }
 }
