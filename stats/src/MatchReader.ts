@@ -1,12 +1,12 @@
 import { dateStringToDate } from "./utils";
 import { MatchResults } from "./MatchResult";
+import { MatchData } from "./MatchData";
+import { CsvFileReader } from "./CsvFileReader";
 
 interface DataReader {
   read(): void;
   data: string[][];
 }
-//define tuple
-type MatchData = [Date, string, string, number, number, MatchResults, string];
 
 export class MatchReader {
   constructor(public reader: DataReader) {}
@@ -27,5 +27,9 @@ export class MatchReader {
         ];
       }
     );
+  }
+
+  static fromCsv(filename: string): MatchReader {
+    return new MatchReader(new CsvFileReader(filename));
   }
 }
