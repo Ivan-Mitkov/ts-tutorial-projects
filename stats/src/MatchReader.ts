@@ -5,7 +5,7 @@ import { CsvFileReader } from "./CsvFileReader";
 //define tuple
 type MatchData = [Date, string, string, number, number, MatchResults, string];
 
-export class MatchReader extends CsvFileReader {
+export class MatchReader extends CsvFileReader<MatchData> {
   constructor(public fileName: string) {
     super(fileName);
   }

@@ -1,10 +1,10 @@
 import fs from "fs";
 
-export abstract class CsvFileReader {
+export abstract class CsvFileReader<T> {
   constructor(public fileName: string) {}
 
-  abstract convertRow(row: string[]): any;
-  data: string[][] = [];
+  abstract convertRow(row: string[]): T;
+  data: T[] = [];
 
   read(): void {
     this.data = fs
