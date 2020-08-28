@@ -9,12 +9,28 @@ interface AppProps {
   fetchTodos: Function;
   deleteTodo: typeof deleteTodo;
 }
-class _App extends Component<AppProps> {
+
+interface AppState {
+  fetching: boolean;
+}
+class _App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = { fetching: false };
+  }
+
   // componentDidMount() {
   //   this.props.fetchTodos();
   // }
+  componentDidUpdate(prevProps: AppProps, prevState: AppState): void {
+    if (!prevProps.todos.length && this.props.todos.length) {
+      this.setState({ fetching: false });
+    }
+  }
+
   onButtonClick = (): void => {
     this.props.fetchTodos();
+    this.setState({ fetching: true });
   };
   deleteTodo = (id: number): void => {
     this.props.deleteTodo(id);
@@ -33,6 +49,7 @@ class _App extends Component<AppProps> {
       <div>
         <button onClick={this.onButtonClick}>Fetch</button>
         {this.renderList()}
+        {this.state.fetching ? "Loading" : null}
       </div>
     );
   }
